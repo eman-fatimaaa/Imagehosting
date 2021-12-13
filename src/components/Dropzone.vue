@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <v-btn @click="upload"> Upload</v-btn>
+    <v-btn @click="upload" color="rgb(0,165,129)" class="white--text">
+      Upload</v-btn
+    >
     <vue-dropzone
       :options="dropzoneOptions"
       :useCustomSlot="true"

@@ -20,29 +20,63 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn color="rgb(0,165,129)" @click="sheet = !sheet" class="white--text"
+      <v-btn
+        color="rgb(0,165,129)"
+        @click="sheet = !sheet"
+        class="white--text mr-5"
         ><v-icon class="white-text">mdi-cloud-upload</v-icon> Upload
       </v-btn>
       <div class="dropdown">
         <button
-          class="btn btn-secondary dropdown-toggle"
+          class="btn btnColor dropdown-toggle"
           type="button"
           id="dropdownMenuButton"
           data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
         >
-          Dropdown button
+          Your Account
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="#"
+            ><router-link class="black--text mr-5 text" to="/Updateprofile">
+              Update your profile?</router-link
+            ></a
+          >
+          <a class="dropdown-item" href="#"
+            ><router-link class="black--text mr-5 text" to="/Forgetpassword">
+              Update Password</router-link
+            ></a
+          >
+          <a class="dropdown-item" href="#"
+            ><router-link class="black--text mr-5 text" to="/Login">
+              Log in</router-link
+            ></a
+          >
         </div>
       </div>
     </v-app-bar>
 
     <Dropzone />
+    <v-row>
+      <v-col v-for="n in 9" :key="n" class="d-flex child-flex" cols="4">
+        <v-img
+          :src="`https://picsum.photos/500/300?image=${n * 5 + 10}`"
+          :lazy-src="`https://picsum.photos/10/6?image=${n * 5 + 10}`"
+          aspect-ratio="1"
+          class="grey lighten-2"
+        >
+          <template v-slot:placeholder>
+            <v-row class="fill-height ma-0" align="center" justify="center">
+              <v-progress-circular
+                indeterminate
+                color="grey lighten-5"
+              ></v-progress-circular>
+            </v-row>
+          </template>
+        </v-img>
+      </v-col>
+    </v-row>
     <div class="text-center">
       <v-bottom-sheet v-model="sheet">
         <v-sheet class="text-center" height="290px">
@@ -73,7 +107,7 @@
           color="rgb(0, 165, 129)"
           cols="12"
         >
-          {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+          {{ new Date().getFullYear() }} — <strong>Pexels</strong>
         </v-col>
       </v-row>
     </v-footer>
@@ -292,5 +326,20 @@ export default {
       margin-right: 10px;
     }
   }
+}
+.btnColor {
+  background-color: rgb(0, 165, 129);
+  color: white;
+}
+.color {
+  background-color: rgb(244, 244, 245);
+}
+.border-radius {
+  border-radius: 5px;
+  color: pink !important;
+  padding: 3px;
+}
+.width {
+  width: 60%;
 }
 </style>

@@ -169,6 +169,7 @@ export default {
     update_profile() {
       this.$store.dispatch("updateProfile", this.updatedData);
       localStorage.setItem("update_Profile", JSON.stringify(this.updatedData));
+      this.$alert("Your profile has been Updated successfully");
     },
   },
 };

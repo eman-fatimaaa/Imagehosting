@@ -209,8 +209,9 @@ export default {
   methods: {
     async storeData() {
       if (this.$refs.form.validate()) {
-        this.$store.dispatch("updateSnackbarStatus");
+        // this.$store.dispatch("updateSnackbarStatus");
         this.$store.dispatch("Signup", this.signUpData);
+        this.$alert("Your Account has been created Successfully");
 
         this.$router.push({ name: "Login" });
       } else {

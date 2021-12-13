@@ -42,9 +42,9 @@ export default new Vuex.Store({
   },
 
   actions: {
-    updateSnackBarStatus({ commit }) {
-      commit("SET_SNACKBAR", false)
-    },
+    // updateSnackBarStatus({ commit }) {
+    //   commit("SET_SNACKBAR", false)
+    // },
 
     //////// response from signup database
     Signup({
@@ -65,13 +65,13 @@ export default new Vuex.Store({
         .then(response => {
           localStorage.setItem("users", JSON.stringify(response.data.data.user));
           console.log(response);
-          commit("SET_SNACKBAR", true)
-          commit("SET_SNACKBAR_ERRORMSG", response.data.data.message)
+          // commit("SET_SNACKBAR", true)
+          // commit("SET_SNACKBAR_ERRORMSG", response.data.data.message)
         })
         .catch(error => {
           console.log(error)
-          commit("SET_SNACKBAR", true)
-          commit("SET_SNACKBAR_ERRORMSG", error.response.data.data.message)
+          // commit("SET_SNACKBAR", true)
+          // commit("SET_SNACKBAR_ERRORMSG", error.response.data.data.message)
         })
     },
 
@@ -101,14 +101,14 @@ export default new Vuex.Store({
           localStorage.setItem("Token", JSON.stringify(response.data.data.token));
           //setAuthHeader(response.data.Token)
           console.log(response.data.data.token);
-          commit("SET_SNACKBAR", true)
-          commit("SET_SNACKBAR_ERRORMSG", response.data.data.message)
+          // commit("SET_SNACKBAR", true)
+          // commit("SET_SNACKBAR_ERRORMSG", response.data.data.message)
 
         })
         .catch(error => {
           console.log(error)
-          commit("SET_SNACKBAR", true)
-          commit("SET_SNACKBAR_ERRORMSG", error.response.data.data.message)
+          // commit("SET_SNACKBAR", true)
+          // commit("SET_SNACKBAR_ERRORMSG", error.response.data.data.message)
         })
     },
 
@@ -199,8 +199,7 @@ export default new Vuex.Store({
         .post('http://localhost:3000/images', { ...payload })
         .then((response) => {
           console.log(response.data)
-          // commit('auth', authData)
-          // localStorage.setItem('Users', JSON.stringify(response.data[0]))
+
         })
         .catch((error) => {
           console.log(error.response)
